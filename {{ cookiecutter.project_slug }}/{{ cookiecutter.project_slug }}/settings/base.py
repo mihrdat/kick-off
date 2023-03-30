@@ -1,12 +1,6 @@
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-SECRET_KEY = 'django-insecure-+51ttmn13&f9k@g=rvy6!q=4570vb%+%_+7x^7-jtuc-4p^l$w'
-
-DEBUG = True
-
-ALLOWED_HOSTS = []
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -46,13 +40,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = '{{ cookiecutter.project_slug }}.wsgi.application'
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
