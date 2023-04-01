@@ -1,4 +1,4 @@
 # Only development-specific requirements but imports the common ones too.
 -r common.txt
 
-autopep8 == 2.0.2
+black == 23.3.0
