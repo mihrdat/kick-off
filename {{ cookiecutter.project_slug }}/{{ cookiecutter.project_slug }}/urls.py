@@ -6,7 +6,7 @@ from drf_spectacular.views import (
     SpectacularRedocView,
 )
 
-SPECTACULAR_URLS = [
+spectacular_urls = [
     path("", SpectacularAPIView.as_view(), name="schema"),
     path(
         "swagger-ui/",
@@ -21,6 +21,7 @@ SPECTACULAR_URLS = [
 ]
 
 urlpatterns = [
+    path("__debug__/", include("debug_toolbar.urls")),
     path("admin/", admin.site.urls),
-    path("schema/", include(SPECTACULAR_URLS)),
+    path("schema/", include(spectacular_urls)),
 ]
