@@ -87,7 +87,7 @@ AUTH_USER_MODEL = "core.User"
 
 REST_FRAMEWORK = {
     "COERCE_DECIMAL_TO_STRING": False,
-    "DEFAULT_PAGINATION_CLASS": "custom.pagination.GlobalLimitOffsetPagination",
+    "DEFAULT_PAGINATION_CLASS": "core.pagination.DefaultLimitOffsetPagination",
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
