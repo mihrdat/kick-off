@@ -12,6 +12,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "drf_spectacular",
+    "{{ cookiecutter.project_slug }}",
 ]
 
 MIDDLEWARE = [
@@ -86,6 +87,8 @@ MEDIA_URL = "media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTH_USER_MODEL = "{{ cookiecutter.project_slug }}.User"
 
 REST_FRAMEWORK = {
     "COERCE_DECIMAL_TO_STRING": False,
