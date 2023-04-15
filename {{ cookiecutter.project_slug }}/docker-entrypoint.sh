@@ -1,10 +1,16 @@
 #!/bin/bash
 
-echo "Waiting for PostgreSQL to start..."
+echo "+------------------------------------+"
+echo "| Waiting for PostgreSQL to start... |"
+echo "+------------------------------------+"
 ./wait-for-it.sh db:5432
 
-echo "Migrating database..."
+echo "+-----------------------+"
+echo "| Migrating database... |"
+echo "+-----------------------+"
 python manage.py migrate
 
-echo "Starting server..."
+echo "+------------------------+"
+echo "| Starting the server... |"
+echo "+------------------------+"
 python manage.py runserver 0.0.0.0:8000
