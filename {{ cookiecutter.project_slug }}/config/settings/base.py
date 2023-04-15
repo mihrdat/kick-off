@@ -12,7 +12,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "drf_spectacular",
-    "core",
 ]
 
 MIDDLEWARE = [
@@ -26,7 +25,7 @@ MIDDLEWARE = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
-ROOT_URLCONF = "{{ cookiecutter.project_slug }}.urls"
+ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
     {
@@ -44,13 +43,13 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "{{ cookiecutter.project_slug }}.wsgi.application"
+WSGI_APPLICATION = "config.wsgi.application"
 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": os.getenv("POSTGRES_DB", "{{ cookiecutter.project_slug }}"),
-        "HOST": os.getenv("POSTGRES_HOST", "localhost"),
+        "HOST": os.getenv("POSTGRES_HOST", "127.0.0.1"),
         "USER": os.getenv("POSTGRES_USER", "postgres"),
         "PASSWORD": os.getenv("POSTGRES_PASSWORD", "password"),
         "PORT": os.getenv("POSTGRES_PORT", 5432),
@@ -88,17 +87,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-AUTH_USER_MODEL = "core.User"
-
 REST_FRAMEWORK = {
     "COERCE_DECIMAL_TO_STRING": False,
-    "DEFAULT_PAGINATION_CLASS": "core.pagination.DefaultLimitOffsetPagination",
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 SPECTACULAR_SETTINGS = {
     "TITLE": "{{ cookiecutter.project_slug }} API",
-    "DESCRIPTION": "{{ cookiecutter.project_slug }} description",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
 }
