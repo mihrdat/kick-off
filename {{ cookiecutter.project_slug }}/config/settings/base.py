@@ -49,7 +49,7 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": os.getenv("POSTGRES_DB", "{{ cookiecutter.project_slug }}"),
-        "HOST": os.getenv("POSTGRES_HOST", "127.0.0.1"),
+        "HOST": os.getenv("POSTGRES_HOST", "db"),
         "USER": os.getenv("POSTGRES_USER", "postgres"),
         "PASSWORD": os.getenv("POSTGRES_PASSWORD", "password"),
         "PORT": os.getenv("POSTGRES_PORT", 5432),
