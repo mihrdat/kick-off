@@ -95,4 +95,4 @@ REST_FRAMEWORK = {
 }
 
 # Conf
-from config.swagger import SPECTACULAR_SETTINGS
+from config.swagger import *
