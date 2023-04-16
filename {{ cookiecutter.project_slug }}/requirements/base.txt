@@ -1,4 +1,4 @@
-# Common requirements for all environments
+# Base requirements for all environments
 
 Django == 4.1.2
 djangorestframework == 3.14.0
