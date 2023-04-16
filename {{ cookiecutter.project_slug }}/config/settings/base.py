@@ -11,10 +11,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "corsheaders",
     "{{ cookiecutter.project_slug }}",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -96,3 +98,4 @@ REST_FRAMEWORK = {
 
 # Conf
 from config.swagger import *
+from config.cors import *
