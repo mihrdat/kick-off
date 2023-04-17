@@ -14,11 +14,7 @@ MIDDLEWARE += [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
-# To fix django-debug-toolbar disappearing when running application with Docker.
-DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": lambda request: True}
-
-SPECTACULAR_SETTINGS = {
-    "TITLE": "{{ cookiecutter.project_slug }} API",
-    "VERSION": "1.0.0",
-    "SERVE_INCLUDE_SCHEMA": False,
-}
+# Conf
+from {{ cookiecutter.project_slug }}.conf.debug_toolbar import *
+from {{ cookiecutter.project_slug }}.conf.swagger import *
+from {{ cookiecutter.project_slug }}.conf.email.dev import *

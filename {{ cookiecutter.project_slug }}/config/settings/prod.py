@@ -12,3 +12,6 @@ REST_FRAMEWORK.update(
         "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",),
     }
 )
+
+# Conf
+from {{ cookiecutter.project_slug }}.conf.email.prod import *
