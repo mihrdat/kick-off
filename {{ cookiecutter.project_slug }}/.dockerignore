@@ -4,6 +4,7 @@
 .idea
 .vscode
 **/__pycache__
+**/README.md
 __pycache__
 README.md
 /venv
