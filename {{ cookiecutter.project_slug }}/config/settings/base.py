@@ -95,9 +95,3 @@ REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     "DEFAULT_PAGINATION_CLASS": "{{ cookiecutter.project_slug }}.pagination.DefaultLimitOffsetPagination",
 }
-
-# Conf
-from {{ cookiecutter.project_slug }}.conf.jwt import *
-from {{ cookiecutter.project_slug }}.conf.celery import *
-from {{ cookiecutter.project_slug }}.conf.celery_beat import *
-from {{ cookiecutter.project_slug }}.conf.logging import *
