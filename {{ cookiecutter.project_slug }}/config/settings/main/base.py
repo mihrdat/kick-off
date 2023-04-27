@@ -1,4 +1,3 @@
-from config.settings.rest_framework import *
 from config.settings.jwt import *
 from config.settings.sentry import *
 from pathlib import Path
