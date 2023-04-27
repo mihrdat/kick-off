@@ -1,3 +1,4 @@
+from config.settings.rest_framework import *
 from config.settings.jwt import *
 from config.settings.sentry import *
 from pathlib import Path
@@ -91,9 +92,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "{{ cookiecutter.project_slug }}.User"
-
-REST_FRAMEWORK = {
-    "COERCE_DECIMAL_TO_STRING": False,
-    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
-    "DEFAULT_PAGINATION_CLASS": "{{ cookiecutter.project_slug }}.pagination.DefaultLimitOffsetPagination",
-}
