@@ -1,4 +1,5 @@
 from .base import *
+from config.settings.swagger import *
 
 SECRET_KEY = "django-insecure-v*!upq!^puv^gzfj6&lnssm5q7iu2jgl$vue=iqwe!x*@z#3^$"
 
@@ -13,12 +14,6 @@ INSTALLED_APPS += [
 MIDDLEWARE += [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
-
-SPECTACULAR_SETTINGS = {
-    "TITLE": "{{ cookiecutter.project_slug }} API",
-    "VERSION": "1.0.0",
-    "SERVE_INCLUDE_SCHEMA": False,
-}
 
 INTERNAL_IPS = [
     "127.0.0.1",
