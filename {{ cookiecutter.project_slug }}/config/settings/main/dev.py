@@ -1,5 +1,6 @@
 from .base import *
 from config.settings.swagger import *
+from config.settings.debug_toolbar import *
 
 SECRET_KEY = "django-insecure-v*!upq!^puv^gzfj6&lnssm5q7iu2jgl$vue=iqwe!x*@z#3^$"
 
@@ -14,10 +15,3 @@ INSTALLED_APPS += [
 MIDDLEWARE += [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
-
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
-
-# To fix django-debug-toolbar disappearing when running application using Docker.
-DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": lambda request: True}
