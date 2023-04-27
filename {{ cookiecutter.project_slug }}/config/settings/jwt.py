@@ -1,6 +1,6 @@
 from datetime import timedelta
 
 SIMPLE_JWT = {
-    "AUTH_HEADER_TYPES": ("JWT",),
+    "AUTH_HEADER_TYPES": ["JWT"],
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
 }

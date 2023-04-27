@@ -1,6 +1,6 @@
 COMMON = {
     "COERCE_DECIMAL_TO_STRING": False,
-    "DEFAULT_PAGINATION_CLASS": "delta.pagination.DefaultLimitOffsetPagination",
+    "DEFAULT_PAGINATION_CLASS": "{{ cookiecutter.project_slug }}.pagination.DefaultLimitOffsetPagination",
 }
 
 DEV = {
@@ -10,5 +10,5 @@ DEV = {
 
 PROD = {
     **COMMON,
-    "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",),
+    "DEFAULT_RENDERER_CLASSES": ["rest_framework.renderers.JSONRenderer"],
 }

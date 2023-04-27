@@ -5,6 +5,8 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
+SECRET_KEY = os.getenv("SECRET_KEY", "insecure-secret-key-!x*@z#3^$")
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",

@@ -8,10 +8,9 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    urlpatterns.extend(
-        [
-            path("", include("config.urls.swagger")),
-            path("__debug__/", include("debug_toolbar.urls")),
-            *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
-        ]
-    )
+    urlpatterns = [
+        path("", include("config.urls.swagger")),
+        path("__debug__/", include("debug_toolbar.urls")),
+        *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
+        *urlpatterns,
+    ]
