@@ -1,3 +1,5 @@
+from config.settings.jwt import *
+from config.settings.sentry import *
 from pathlib import Path
 import os
 
