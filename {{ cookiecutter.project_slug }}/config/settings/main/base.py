@@ -1,7 +1,8 @@
+import os
+from pathlib import Path
 from config.settings.jwt import *
 from config.settings.sentry import *
-from pathlib import Path
-import os
+from config.settings.celery import *
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
