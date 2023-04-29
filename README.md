@@ -12,6 +12,7 @@ This is a Django project template created using Cookiecutter. It provides a soli
 - Redis for caching and Celery message broker
 - Django Debug Toolbar for development
 - Makefile for common project tasks
+- and more
 
 ## Requirements
 
