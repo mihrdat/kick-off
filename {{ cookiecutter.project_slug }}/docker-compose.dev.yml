@@ -24,7 +24,7 @@ services:
     image: rnwood/smtp4dev:3.2.0-ci20221023104
     ports:
       - 25:25
-      - 8001:80
+      - 2525:80
     restart: always
 
   celery:
@@ -48,6 +48,18 @@ services:
     volumes:
       - .:/app
     restart: on-failure
+
+  flower:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: celery -A {{ cookiecutter.project_slug }} flower
+    depends_on:
+      - redis
+      - celery
+      - web
+    ports:
+      - 5555:5555
 
   web:
     build:
