@@ -1,4 +1,4 @@
-version: '3.9'
+version: "3.9"
 
 services:
   db:
@@ -24,10 +24,32 @@ services:
     image: rnwood/smtp4dev:3.2.0-ci20221023104
     ports:
       - 25:25
-      - 2525:80
+      - 8001:80
     restart: always
 
-  api:
+  celery:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: celery -A {{ cookiecutter.project_slug }} worker --loglevel=info
+    depends_on:
+      - redis
+    volumes:
+      - .:/app
+    restart: on-failure
+
+  celery-beat:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: celery -A {{ cookiecutter.project_slug }} beat --loglevel=info
+    depends_on:
+      - redis
+    volumes:
+      - .:/app
+    restart: on-failure
+
+  web:
     build:
       context: .
       dockerfile: Dockerfile.dev
