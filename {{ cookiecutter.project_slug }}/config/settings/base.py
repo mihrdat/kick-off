@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-from datetime import timedelta
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -96,11 +95,6 @@ AUTH_USER_MODEL = "{{ cookiecutter.project_slug }}.User"
 REST_FRAMEWORK = {
     "COERCE_DECIMAL_TO_STRING": False,
     "DEFAULT_PAGINATION_CLASS": "{{ cookiecutter.project_slug }}.pagination.DefaultLimitOffsetPagination",
-}
-
-SIMPLE_JWT = {
-    "AUTH_HEADER_TYPES": ("JWT",),
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
 }
 
 REDIS_URL = os.getenv("REDIS_URL", "redis://redis:6379/1")
