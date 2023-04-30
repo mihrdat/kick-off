@@ -35,6 +35,7 @@ services:
       - .:/app
     depends_on:
       - db
+      - redis
 
 volumes:
   postgres-data:
