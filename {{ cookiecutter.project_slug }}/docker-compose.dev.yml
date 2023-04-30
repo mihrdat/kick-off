@@ -10,6 +10,7 @@ services:
       - POSTGRES_HOST_AUTH_METHOD=trust
     volumes:
       - postgres-data:/var/lib/postgresql/data
+    restart: always
 
   redis:
     image: redis:7.0-alpine
@@ -17,12 +18,14 @@ services:
       - 6379:6379
     volumes:
       - redis-data:/data
+    restart: always
 
   smtp4dev:
     image: rnwood/smtp4dev:3.2.0-ci20221023104
     ports:
       - 25:25
       - 2525:80
+    restart: always
 
   api:
     build:
@@ -36,6 +39,7 @@ services:
     depends_on:
       - db
       - redis
+    restart: on-failure
 
 volumes:
   postgres-data:
