@@ -1,10 +1,12 @@
 # Base requirements for all environments
 
 celery == 5.2.7
-Django == 4.1.2
+django == 4.1.2
 djangorestframework == 3.14.0
 djangorestframework-simplejwt == 4.8.0
 django-cors-headers == 3.14.0
+django-redis == 5.2.0
 drf-nested-routers == 0.93.4
 drf-spectacular == 0.26.1
 psycopg2-binary == 2.9.5
+redis == 4.5.4

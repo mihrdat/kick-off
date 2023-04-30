@@ -102,3 +102,13 @@ SIMPLE_JWT = {
     "AUTH_HEADER_TYPES": ("JWT",),
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
 }
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": os.getenv("REDIS_URL", "redis://redis:6379/1"),
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+    }
+}
