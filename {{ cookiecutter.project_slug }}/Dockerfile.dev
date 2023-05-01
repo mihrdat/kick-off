@@ -1,6 +1,7 @@
-# Build Stage
+# Stage 1: Build stage
 FROM python:3.9.15-alpine AS builder
 
+RUN apk update && apk upgrade
 RUN pip install --upgrade pip
 
 COPY /requirements/base.txt /requirements/dev.txt /requirements/
@@ -8,16 +9,18 @@ COPY /requirements/base.txt /requirements/dev.txt /requirements/
 RUN pip install -r /requirements/dev.txt
 
 
-# Run Stage
+# Stage 2: Run stage
 FROM python:3.9.15-alpine
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
+# Required to execute shell files.
 RUN apk add bash
 
 WORKDIR /app
 
-COPY --from=builder /usr/local/lib/python3.9/site-packages/ /usr/local/lib/python3.9/site-packages/
+# Copy installed packages from builder stage.
+COPY --from=builder /usr/local /usr/local
 
 COPY . /app
