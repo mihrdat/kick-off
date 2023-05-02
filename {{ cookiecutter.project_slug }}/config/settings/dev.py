@@ -6,10 +6,12 @@ INSTALLED_APPS += [
     "debug_toolbar",
     "drf_spectacular",
     "django_extensions",
+    "silk",
 ]
 
 MIDDLEWARE += [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "silk.middleware.SilkyMiddleware",
 ]
 
 # To fix django-debug-toolbar disappearing when running application using Docker.
