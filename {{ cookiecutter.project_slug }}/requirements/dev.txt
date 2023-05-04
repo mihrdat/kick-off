@@ -6,3 +6,4 @@ django-debug-toolbar == 4.0.0
 django-extensions == 3.2.1
 django-silk == 5.0.3
 locust == 2.15.1
+model-bakery == 1.11.0
