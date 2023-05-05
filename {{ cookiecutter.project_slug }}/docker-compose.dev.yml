@@ -57,9 +57,21 @@ services:
     depends_on:
       - redis
       - celery
-      - web
     ports:
       - 5555:5555
+    restart: always
+
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: ./wait-for-it.sh db:5432 -- python manage.py test
+    depends_on:
+      - db
+      - redis
+    tty: true
+    volumes:
+      - .:/app
 
   web:
     build:
