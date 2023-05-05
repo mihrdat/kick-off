@@ -1,9 +1,10 @@
 import os
+import dj_database_url
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-SECRET_KEY = os.getenv("SECRET_KEY", "insecure-secret-key-!x*@z#3^$")
+SECRET_KEY = os.getenv("SECRET_KEY", default="insecure-secret-key-!x*@z#3^$")
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -51,14 +52,10 @@ TEMPLATES = [
 WSGI_APPLICATION = "config.wsgi.application"
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("POSTGRES_DB", "{{ cookiecutter.project_slug }}"),
-        "HOST": os.getenv("POSTGRES_HOST", "db"),
-        "USER": os.getenv("POSTGRES_USER", "postgres"),
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD", "password"),
-        "PORT": os.getenv("POSTGRES_PORT", 5432),
-    }
+    "default": dj_database_url.config(
+        "DATABASE_URL",
+        default="postgres://postgres:password@127.0.0.1:5432/{{ cookiecutter.project_slug }}",
+    )
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -99,7 +96,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "{{ cookiecutter.project_slug }}.pagination.DefaultLimitOffsetPagination",
 }
 
-REDIS_URL = os.getenv("REDIS_URL", "redis://redis:6379/1")
+REDIS_URL = os.getenv("REDIS_URL", default="redis://redis:6379/1")
 
 CACHES = {
     "default": {
@@ -126,7 +123,7 @@ LOGGING = {
     "loggers": {
         "": {
             "handlers": ["file"],
-            "level": os.getenv("DJANGO_LOG_LEVEL", "INFO"),
+            "level": os.getenv("DJANGO_LOG_LEVEL", default="INFO"),
         }
     },
     "formatters": {
