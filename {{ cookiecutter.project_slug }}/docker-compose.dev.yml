@@ -65,7 +65,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    command: ./wait-for-it.sh db:5432 -- python manage.py test
+    command: ./wait-for-it.sh db:5432 -- ptw
     depends_on:
       - db
       - redis

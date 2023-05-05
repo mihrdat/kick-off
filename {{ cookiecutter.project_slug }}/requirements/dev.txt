@@ -8,3 +8,6 @@ django-silk == 5.0.3
 drf-spectacular == 0.26.1
 locust == 2.15.1
 model-bakery == 1.11.0
+pytest == 7.3.1
+pytest-django == 4.5.2
+pytest-watch == 4.2.0
