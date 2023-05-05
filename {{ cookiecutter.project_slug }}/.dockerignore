@@ -16,6 +16,7 @@ README.md
 *.sqlite3
 /static
 /media
+celerybeat-schedule
 
 # Ignore Docker build files and directories
 .dockerignore
