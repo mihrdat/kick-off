@@ -1,5 +1,5 @@
-# Only development-specific requirements but imports the base ones too.
--r base.txt
+# Only development-specific requirements but imports the common ones too.
+-r common.txt
 
 black == 23.3.0
 django-debug-toolbar == 4.0.0
