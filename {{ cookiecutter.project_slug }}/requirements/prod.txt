@@ -1,4 +1,4 @@
-# Only production-specific requirements but imports the common ones too.
--r common.txt
+# Only production-specific requirements but imports the base ones too.
+-r base.txt
 
 gunicorn == 20.1.0
