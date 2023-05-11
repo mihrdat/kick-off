@@ -53,7 +53,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 DATABASES = {
     "default": dj_database_url.config(
-        "DATABASE_URL",
+        env="DATABASE_URL",
         default="postgres://postgres:password@db:5432/{{ cookiecutter.project_slug }}",
     )
 }
