@@ -13,7 +13,7 @@ class SpecialCharPasswordValidator:
 
         if not re.findall(chars, password):
             raise ValidationError(
-                _(f"This password doesn’t contain any special characters: {chars}."),
+                _(f"This password doesn't contain any special characters: {chars}."),
                 code="password_no_symbol",
             )
 
@@ -26,6 +26,6 @@ class UppercasePasswordValidator:
     def validate(self, password, user=None):
         if not re.findall("[A-Z]", password):
             raise ValidationError(
-                _("This password doesn’t contain uppercase letter, A-Z."),
+                _("This password doesn't contain uppercase letter, A-Z."),
                 code="password_no_upper",
             )
