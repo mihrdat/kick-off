@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "django_filters",
     "{{ cookiecutter.project_slug }}",
+    "utils",
 ]
 
 MIDDLEWARE = [
