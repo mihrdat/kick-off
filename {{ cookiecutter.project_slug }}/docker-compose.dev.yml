@@ -1,13 +1,26 @@
 version: "3.9"
 
 services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: ./docker-entrypoint.sh
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+      - redis
+
   db:
     image: postgres:15.1-alpine
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_DB={{ cookiecutter.project_slug }}
-      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_DB = {{ cookiecutter.project_slug }}
+      - POSTGRES_HOST_AUTH_METHOD = trust
     volumes:
       - postgres-data:/var/lib/postgresql/data
 
@@ -67,19 +80,19 @@ services:
     volumes:
       - .:/app
 
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    command: ./docker-entrypoint.sh
-    ports:
-      - 8000:8000
+  pgadmin:
+    image: dpage/pgadmin4:7.1
+    environment:
+      - PGADMIN_DEFAULT_EMAIL = admin@domain.com
+      - PGADMIN_DEFAULT_PASSWORD = password
     volumes:
-      - .:/app
+      - pgadmin-data:/var/lib/pgadmin
+    ports:
+      - 5050:80
     depends_on:
       - db
-      - redis
 
 volumes:
   postgres-data:
   redis-data:
+  pgadmin-data:
