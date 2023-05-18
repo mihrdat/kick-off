@@ -16,7 +16,6 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "django_filters",
-    "{{ cookiecutter.project_slug }}",
     "utils",
 ]
 
