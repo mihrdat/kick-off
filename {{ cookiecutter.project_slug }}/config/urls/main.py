@@ -9,7 +9,7 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns = [
-        path("", include("{{ cookiecutter.project_slug }}.urls.swagger")),
+        path("", include("config.urls.swagger")),
         path("__debug__/", include("debug_toolbar.urls")),
         path("silk/", include("silk.urls", namespace="silk")),
         *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
