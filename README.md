@@ -11,7 +11,6 @@ This is a Django project template created using Cookiecutter. It provides a soli
 - Celery for background tasks
 - Redis for caching and Celery message broker
 - Django Debug Toolbar for development
-- Makefile for common project tasks
 - and more
 
 ## Requirements
@@ -35,7 +34,7 @@ This will prompt you for some information about your project. Once you've provid
 
 Next, navigate to the project directory and start the Docker containers:
 ```
-cd project_name/
+cd project_name
 ```
 ```
 docker-compose -f docker-compose.dev.yml up
