@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  web:
+  api:
     build:
       context: .
       dockerfile: Dockerfile.dev
@@ -31,12 +31,6 @@ services:
     volumes:
       - redis-data:/data
 
-  smtp4dev:
-    image: rnwood/smtp4dev:3.2.0-ci20221023104
-    ports:
-      - 25:25
-      - 2525:80
-
   celery:
     build:
       context: .
@@ -56,6 +50,12 @@ services:
       - redis
     volumes:
       - .:/app
+
+  smtp4dev:
+    image: rnwood/smtp4dev:3.2.0-ci20221023104
+    ports:
+      - 25:25
+      - 2525:80
 
   flower:
     build:
