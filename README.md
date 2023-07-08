@@ -11,7 +11,6 @@ This is a Django project template created using Cookiecutter. It provides a soli
 - Celery for background tasks
 - Redis for caching and Celery message broker
 - Django Debug Toolbar for development
-- Locust for performance testing
 - and more
 
 ## Requirements
