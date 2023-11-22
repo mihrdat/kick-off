@@ -2,6 +2,8 @@ import os
 import dj_database_url
 from pathlib import Path
 
+from config.minio import *
+
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY", default="insecure-secret-key-!x*@z#3^$")
@@ -15,6 +17,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "corsheaders",
+    "minio_storage",
     "django_filters",
     "drf_spectacular",
 ]
@@ -81,10 +84,10 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-
 MEDIA_URL = "media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+DEFAULT_FILE_STORAGE = "minio_storage.storage.MinioMediaStorage"
+STATICFILES_STORAGE = "minio_storage.storage.MinioStaticStorage"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
