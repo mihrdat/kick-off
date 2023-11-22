@@ -3,12 +3,10 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-API_PATTERNS = []
-
 urlpatterns = [
-    path("", include("config.urls.swagger")),
     path("admin/", admin.site.urls),
-    path("api/v1/", include(API_PATTERNS)),
+    path("swagger/", include("config.urls.swagger")),
+    path("api/v1/", include("config.urls.api")),
 ]
 
 if settings.DEBUG:
