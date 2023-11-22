@@ -2,11 +2,14 @@ import os
 import dj_database_url
 from pathlib import Path
 
+from dotenv import load_dotenv
 from config.minio import *
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-SECRET_KEY = os.getenv("SECRET_KEY", default="insecure-secret-key-!x*@z#3^$")
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -54,10 +57,7 @@ TEMPLATES = [
 WSGI_APPLICATION = "config.wsgi.application"
 
 DATABASES = {
-    "default": dj_database_url.config(
-        env="DATABASE_URL",
-        default="postgres://postgres:password@db:5432/{{ cookiecutter.project_slug }}",
-    )
+    "default": dj_database_url.config(env="DATABASE_URL"),
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -96,7 +96,7 @@ REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
-REDIS_URL = os.getenv("REDIS_URL", default="redis://redis:6379/1")
+REDIS_URL = os.environ.get("REDIS_URL")
 
 CACHES = {
     "default": {
@@ -108,7 +108,7 @@ CACHES = {
     }
 }
 
-CELERY_BROKER_URL = REDIS_URL
+CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL")
 
 # Swagger
 SPECTACULAR_SETTINGS = {
@@ -116,3 +116,5 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
 }
+
+BASE_BACKEND_URL = os.environ.get("BASE_BACKEND_URL")

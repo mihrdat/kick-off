@@ -2,7 +2,7 @@ from .common import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOST")]
 
 REST_FRAMEWORK = {
     **REST_FRAMEWORK,
