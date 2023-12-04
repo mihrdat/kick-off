@@ -27,7 +27,7 @@ pip install cookiecutter
 
 Then run the following command:
 ```
-cookiecutter https://github.com/Mihrdat/kick-off.git
+cookiecutter https://github.com/mihrdat/kick-off.git
 ```
 
 This will prompt you for some information about your project. Once you've provided all the necessary information, Cookiecutter will generate a new Django project for you based on this template.
