@@ -34,9 +34,6 @@ This will prompt you for some information about your project. Once you've provid
 
 Next, navigate to the project directory and start the Docker containers:
 ```
-cd project_name
-```
-```
 docker-compose -f docker-compose.dev.yml up
 ```
 
