@@ -51,12 +51,6 @@ services:
     volumes:
       - .:/app
 
-  smtp4dev:
-    image: rnwood/smtp4dev:3.2.0-ci20221023104
-    ports:
-      - 25:25
-      - 2525:80
-
   tests:
     build:
       context: .
@@ -68,18 +62,6 @@ services:
     tty: true
     volumes:
       - .:/app
-
-  pgadmin:
-    image: dpage/pgadmin4:7.1
-    environment:
-      - PGADMIN_DEFAULT_EMAIL = admin@domain.com
-      - PGADMIN_DEFAULT_PASSWORD = password
-    volumes:
-      - pgadmin-data:/var/lib/pgadmin
-    ports:
-      - 5050:80
-    depends_on:
-      - db
 
 volumes:
   postgres-data:
