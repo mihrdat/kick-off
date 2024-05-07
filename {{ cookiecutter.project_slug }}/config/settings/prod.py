@@ -1,8 +1,9 @@
+import os
 from .common import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOST")]
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split("|")
 
 REST_FRAMEWORK = {
     **REST_FRAMEWORK,
